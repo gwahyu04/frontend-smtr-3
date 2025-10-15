@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Penjualan Motor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f6f6f6;
+    }
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    td {
+      padding: 6px;
+    }
+    input[type="text"] {
+      width: 150px;
+      padding: 4px;
+    }
+    .btn {
+      padding: 6px 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .btn-proses {
+      background-color: #27ae60;
+      color: white;
+    }
+    .btn-reset {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .kotak {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .info {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>DEALER MOTOR</h2>
+
+  <div class="kotak">
+    <form id="formMotor">
+      <table>
+        <tr>
+          <td>Merk Motor</td>
+          <td>
+            <select id="merk">
+              <option value="15000000">HONDA</option>
+              <option value="14000000">YAMAHA</option>
+              <option value="13000000">SUZUKI</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Aksesoris</td>
+          <td>
+            <input type="checkbox" class="akses" value="450000"> Velg Racing<br>
+            <input type="checkbox" class="akses" value="250000"> Helm<br>
+            <input type="checkbox" class="akses" value="300000"> Jaket
+          </td>
+        </tr>
+
+        <tr>
+          <td>Cara Pembayaran</td>
+          <td>
+            <input type="radio" name="bayar" value="tunai"> Tunai<br>
+            <input type="radio" name="bayar" value="kredit"> Kredit
+          </td>
+        </tr>
+
+        <tr>
+          <td>Harga</td>
+          <td><input type="text" id="harga" readonly></td>
+        </tr>
+
+        <tr>
+          <td>Bunga/Diskon</td>
+          <td><input type="text" id="diskon" readonly></td>
+        </tr>
+
+        <tr>
+          <td>Total</td>
+          <td><input type="text" id="total" readonly></td>
+        </tr>
+      </table>
+
+      <div style="text-align:center;">
+        <button type="button" class="btn btn-proses" onclick="hitungTotal()">Proses</button>
+        <button type="reset" class="btn btn-reset">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="info">
+    <p>
+      Jika Membayar Secara <b>Tunai</b> akan mendapat <b>Diskon 10%</b><br>
+      Jika Membayar Secara <b>Kredit</b> akan kena <b>Bunga 15%</b>
+    </p>
+  </div>
+
+  <script>
+    function hitungTotal() {
+      const merk = parseInt(document.getElementById("merk").value);
+      const aksesoris = document.querySelectorAll(".akses:checked");
+      const pembayaran = document.querySelector('input[name="bayar"]:checked');
+
+      if (!pembayaran) {
+        alert("Pilih cara pembayaran terlebih dahulu!");
+        return;
+      }
+
+      // Hitung harga total aksesoris
+      let totalAkses = 0;
+      aksesoris.forEach((item) => {
+        totalAkses += parseInt(item.value);
+      });
+
+      // Hitung harga dasar
+      const hargaMotor = merk + totalAkses;
+      document.getElementById("harga").value = hargaMotor.toLocaleString("id-ID");
+
+      let diskonBunga = 0;
+      let totalBayar = 0;
+
+      if (pembayaran.value === "tunai") {
+        diskonBunga = hargaMotor * 0.10 * -1; // diskon 10%
+        totalBayar = hargaMotor + diskonBunga;
+      } else if (pembayaran.value === "kredit") {
+        diskonBunga = hargaMotor * 0.15; // bunga 15%
+        totalBayar = hargaMotor + diskonBunga;
+      }
+
+      document.getElementById("diskon").value = diskonBunga.toLocaleString("id-ID");
+      document.getElementById("total").value = totalBayar.toLocaleString("id-ID");
+    }
+  </script>
+</body>
+</html>

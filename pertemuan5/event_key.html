@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contoh Event Key</title>
+</head>
+
+<body>
+  <h1 id="keydown"></h1>
+  <h1 id="keypress"></h1>
+  <h1 id="keyup"></h1>
+
+  <script>
+    const keydown = document.getElementById("keydown");
+    const keypress = document.getElementById("keypress");
+    const keyup = document.getElementById("keyup");
+
+    // Event ketika tombol ditekan
+    document.addEventListener("keydown", function(event) {
+      keydown.innerText = "menekan : " + event.key;
+    });
+
+    // Event ketika tombol sedang ditekan
+    document.addEventListener("keypress", function(event) {
+      keypress.innerText = "menahan : " + event.key;
+    });
+
+    // Event ketika tombol dilepas
+    document.addEventListener("keyup", function(event) {
+      keyup.innerText = "melepas : " + event.key;
+    });
+  </script>
+</body>
+</html>

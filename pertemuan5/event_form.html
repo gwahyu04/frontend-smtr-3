@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latihan Form Event</title>
+
+  <style>
+    /* === RESET & GLOBAL STYLE === */
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* === FORM CARD === */
+    form {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      transition: transform 0.3s ease;
+    }
+    form:hover {
+      transform: scale(1.03);
+    }
+
+    fieldset {
+      border: none;
+      padding: 0;
+    }
+
+    legend {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #2d3436;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      margin-bottom: 15px;
+    }
+
+    input:focus {
+      border-color: #0984e3;
+      box-shadow: 0 0 5px rgba(9, 132, 227, 0.5);
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-right: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit {
+      background: #0984e3;
+      color: white;
+    }
+    .btn-submit:hover {
+      background: #74b9ff;
+    }
+
+    .btn-reset {
+      background: #d63031;
+      color: white;
+    }
+    .btn-reset:hover {
+      background: #ff7675;
+    }
+
+    /* === FEEDBACK === */
+    #feedback {
+      color: #636e72;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="#" method="post" id="form-login">
+    <fieldset>
+      <legend>Login Form</legend>
+
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan email (opsional)">
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" id="remember"> Ingat saya
+        </label>
+      </div>
+
+      <div style="text-align:center; margin-top:15px;">
+        <button type="submit" class="btn btn-submit">Login</button>
+        <button type="reset" class="btn btn-reset">Clear</button>
+      </div>
+
+      <div id="feedback"></div>
+    </fieldset>
+  </form>
+
+  <script>
+    const form = document.getElementById("form-login");
+    const feedback = document.getElementById("feedback");
+
+    // Event saat form disubmit
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      feedback.textContent = `Selamat datang, ${username}! 👋`;
+      feedback.style.color = "#00b894";
+    });
+
+    // Event saat form direset
+    form.addEventListener("reset", function() {
+      feedback.textContent = "Form telah dihapus ❌";
+      feedback.style.color = "#d63031";
+    });
+  </script>
+</body>
+</html>
