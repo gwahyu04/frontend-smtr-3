@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Rental</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h2>Data Rental</h2>
+    <nav>
+        <a href="{{ url_for('mobil') }}">Mobil</a> |
+        <a href="{{ url_for('pelanggan') }}">Pelanggan</a> |
+        <a href="{{ url_for('rental') }}">Rental</a>
+    </nav>
+</header>
+
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h3>Daftar Transaksi Rental</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nama Mobil</th>
+            <th>Pelanggan</th>
+            <th>Tanggal Pinjam</th>
+            <th>Tanggal Kembali</th>
+            <th>Total Harga</th>
+            <th>Status</th>
+        </tr>
+        {% for r in rental %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+            <td>{{ r[5] | rupiah }}</td>
+            <td>{{ r[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Tambah Rental Baru</h3>
+    <form method="POST" action="{{ url_for('tambah_rental') }}">
+        <input type="number" name="id_mobil" placeholder="ID Mobil" required>
+        <input type="number" name="id_pelanggan" placeholder="ID Pelanggan" required>
+        <input type="date" name="tanggal_pinjam" required>
+        <input type="date" name="tanggal_kembali" required>
+        <input type="number" name="total_harga" placeholder="Total Harga" required>
+        <button type="submit">Tambah</button>
+    </form>
+</main>
+
+</body>
+</html>
