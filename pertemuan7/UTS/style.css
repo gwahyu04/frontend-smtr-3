@@ -1,0 +1,120 @@
+/* === Style Umum === */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === Container utama === */
+.form-container {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 15px;
+    width: 380px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    font-size: 24px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+h3 {
+    text-align: center;
+    color: #2d3436;
+}
+
+/* === Label dan input === */
+label {
+    display: inline-block;
+    width: 130px;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 180px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* === Tombol === */
+button {
+    margin: 8px 5px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+button.hitung {
+    background-color: #28a745;
+    color: white;
+}
+
+button.reset {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+/* === Ketentuan === */
+.ketentuan {
+    margin-top: 20px;
+    background: #c7c9ce;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* === Popup (tengah layar) === */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    width: 300px;
+    text-align: left;
+}
+
+.popup h3 {
+    text-align: center;
+    color: #2d3436;
+}
+
+.popup button {
+    margin-top: 10px;
+    width: 45%;
+}
+
+ul {
+    margin-left: -20px;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border: 1px solid #0984e3;
+    box-shadow: 0 0 5px rgba(9,132,227,0.5);
+}

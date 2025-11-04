@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplikasi Penjualan Computer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>APLIKASI PENJUALAN COMPUTER</h2>
+
+    <div class="form-container">
+        <h3>Data Barang</h3>
+        <label>Kategori :</label>
+        <select id="kategori" onchange="showPopupKategori()">
+            <option value="">-- Pilih Kategori --</option>
+            <option value="pc">PC / Laptop</option>
+            <option value="aksesoris">Aksesoris</option>
+            <option value="Monitor">Monitor</option>
+        </select><br>
+
+        <label>Nama Barang :</label>
+        <input type="text" id="nama" readonly><br>
+
+        <label>Harga Satuan : Rp.</label>
+        <input type="number" id="harga" readonly><br>
+
+        <label>Jumlah :</label>
+        <input type="number" id="jumlah"><br>
+
+        <label>Jenis Penjualan :</label>
+        <select id="jenis" onchange="showPopupJenis()">
+            <option value="">-- Pilih Jenis Pembayaran --</option>
+            <option value="tunai">Tunai</option>
+            <option value="kredit">Kredit</option>
+        </select><br><br>
+
+        <label>Total Penjualan : Rp.</label>
+        <input type="text" id="total" readonly><br>
+
+        <label>Diskon : Rp.</label>
+        <input type="text" id="diskon" readonly><br>
+
+        <label>Pajak : Rp.</label>
+        <input type="text" id="pajak" readonly><br>
+
+        <label>Harga Total : Rp.</label>
+        <input type="text" id="hargatotal" readonly><br><br>
+
+        <button onclick="hitungTotal()" class="hitung">Hitung Total</button>
+        <button onclick="resetForm()" class="reset">Reset</button>
+    </div>
+
+    <!-- POPUP PC / LAPTOP -->
+    <div class="popup" id="popup-pc">
+        <h3>PC / LAPTOP</h3>
+        <label><input type="radio" name="pc" value="IBM,5800000"> PC IBM Core i7 - Rp. 5.800.000</label><br>
+        <label><input type="radio" name="pc" value="Asus,4500000"> Laptop Asus Core i5 - Rp. 4.500.000</label><br>
+        <label><input type="radio" name="pc" value="Lenovo,9500000"> Laptop Lenovo AMD Ryzen 5 - Rp. 9.500.000</label><br><br>
+        <button onclick="pilihBarang('pc')">Simpan</button>
+        <button onclick="closePopup('popup-pc')">Batal</button>
+    </div>
+
+    <!-- POPUP AKSESORIS -->
+    <div class="popup" id="popup-aksesoris">
+        <h3>AKSESORIS</h3>
+        <label><input type="radio" name="aks" value="Flashdisk,50000"> Flashdisk 32GB - Rp. 50.000</label><br>
+        <label><input type="radio" name="aks" value="Hardisk,1250000"> Hardisk 256GB - Rp. 1.250.000</label><br>
+        <label><input type="radio" name="aks" value="Speaker,285000"> Speaker Aktif - Rp. 285.000</label><br><br>
+        <button onclick="pilihBarang('aksesoris')">Simpan</button>
+        <button onclick="closePopup('popup-aksesoris')">Batal</button>
+    </div>
+
+    <!-- POPUP MONITOR -->
+    <div class="popup" id="popup-Monitor">
+        <h3>MONITOR</h3>
+        <label><input type="radio" name="Monitor" value="Lenovo AOC24,7000000"> Lenovo AOC24 - Rp. 7.000.000</label><br>
+        <label><input type="radio" name="Monitor" value="Samsung 24INC,8500000"> Samsung 24INC - Rp. 8.500.000</label><br><br>
+        <button onclick="pilihBarang('Monitor')">Simpan</button>
+        <button onclick="closePopup('popup-Monitor')">Batal</button>
+    </div>
+
+    <!-- POPUP JENIS PENJUALAN -->
+    <div class="popup" id="popup-jenis">
+        <h3>JENIS PENJUALAN</h3>
+        <label><input type="radio" name="jual" value="tunai"> Tunai</label><br>
+        <label><input type="radio" name="jual" value="kredit"> Kredit</label><br><br>
+        <button onclick="simpanJenis()">Simpan</button>
+        <button onclick="closePopup('popup-jenis')">Batal</button>
+    </div>
+
+    <div class="ketentuan">
+        <h3>Ketentuan :</h3>
+        <ul>
+            <li>Diskon 10% dari total penjualan jika penjualan dilakukan secara tunai.</li>
+            <li>Pajak 15% untuk barang utama (PC/Laptop).</li>
+            <li>Pajak 10% untuk barang aksesoris.</li>
+            <li>Pajak 12% untuk barang monitor.</li>
+        </ul>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
