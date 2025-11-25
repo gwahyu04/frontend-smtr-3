@@ -1,0 +1,67 @@
+/* Container table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f7f7f7;        /* background lebih terang */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* Border */
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+/* Header */
+th {
+    padding: 12px;
+    background-color: #3c3f46;       /* warna gelap elegan tapi tidak terlalu gelap */
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+/* Isi tabel */
+td {
+    padding: 12px;
+    text-align: center;
+    color: #333;
+}
+
+/* Baris hover */
+tr:hover {
+    background-color: #efefef;
+}
+
+/* Tombol */
+.edit-btn, .hapus-btn {
+    padding: 7px 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.25s ease;
+}
+
+/* Tombol edit */
+.edit-btn {
+    background: #ffb347;  /* oranye lembut */
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background: #f1a138;
+}
+
+/* Tombol hapus */
+.hapus-btn {
+    background: #e85d70; /* merah soft */
+    color: #fff;
+}
+
+.hapus-btn:hover {
+    background: #d94b5d;
+}
