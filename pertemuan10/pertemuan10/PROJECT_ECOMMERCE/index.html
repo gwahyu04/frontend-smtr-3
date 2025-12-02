@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online Marketplace - DreamStore</title>
+
+    <!-- Memuat Font Inter dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- jQuery & jQuery UI (Wajib untuk Slider dan Dialog) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- PANGGIL FILE CSS EKSTERNAL -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">Dream<span class="span">Store</span></div>
+        <div class="search-box">
+            <input type="text" placeholder="Cari produk terbaik..." id="searchInput">
+            <button id="searchBtn">Cari</button>
+        </div>
+        <div class="header-icons">
+            <!-- Menambahkan ID ke ikon Keranjang untuk membuka dialog -->
+            <div class="icon-cart" id="openCart"><i class="icon-btn">🛒</i></div>
+            <div class="icon-login"><i class="icon-btn">👤</i></div>
+        </div>
+    </header>
+
+    <nav class="category-bar">
+        <a href="#">Elektronik</a>
+        <a href="#">Fashion</a>
+        <a href="#">Olahraga</a>
+        <a href="#">Kesehatan</a>
+        <a href="#">Kosmetik</a>
+        <a href="#">Rumah Tangga</a>
+        <a href="#">Anak & Bayi</a>
+    </nav>
+
+    <main>
+       <!-- index.html -->
+    <section class="filter-box">
+         <h2>Filter Harga</h2>
+        <!-- ID INI HARUS PERSIS SAMA DENGAN DI JS -->
+        <div id="priceSlider"></div> 
+        <p>Rentang: <span id="priceRange"></span></p>
+        <button id="filterBtn" class="product-card button">Terapkan Filter</button>
+    </section>
+
+        <!-- PRODUK GRID -->
+        <section class="product-grid">
+            <div class="product-card" data-price="250000" data-name="Headphone Bass Boost">
+                <img src="https://placehold.co/200x200/ff7043/ffffff?text=Headphone" alt="Headphone Bass Boost">
+                <h4>KiiP Wireless DTS2i TWS Bluetooth Headset</h4>
+                <p class="price">Rp 250.000</p>
+                <p class="sold">124 Terjual</p>
+                <button class="addToCart">Tambah Ke Keranjang</button>
+            </div>
+            <div class="product-card" data-price="50000" data-name="Kaos Polos Premium">
+                <img src="https://placehold.co/200x200/4CAF50/ffffff?text=Kaos" alt="Kaos Polos Premium">
+                <h4>Kaos Polos Premium</h4>
+                <p class="price">Rp 50.000</p>
+                <p class="sold">4.8RB Terjual</p>
+                <button class="addToCart">Tambah Ke Keranjang</button>
+            </div>
+            <div class="product-card" data-price="150000" data-name="Keyboard Mechanical RGB">
+                <img src="https://placehold.co/200x200/2196F3/ffffff?text=Keyboard" alt="Keyboard Mechanical RGB">
+                <h4>Keyboard Mechanical RGB</h4>
+                <p class="price">Rp 150.000</p>
+                <p class="sold">8.1RB Terjual</p>
+                <button class="addToCart">Tambah Ke Keranjang</button>
+            </div>
+            <div class="product-card" data-price="350000" data-name="Jaket Hoodie Tebal">
+                <img src="https://placehold.co/200x200/9C27B0/ffffff?text=Jaket" alt="Jaket Hoodie Tebal">
+                <h4>Jaket Hoodie Tebal</h4>
+                <p class="price">Rp 350.000</p>
+                <p class="sold">952 Terjual</p>
+                <button class="addToCart">Tambah Ke Keranjang</button>
+            </div>
+            <div class="product-card" data-price="120000" data-name="Mouse Gaming Wireless">
+                <img src="https://placehold.co/200x200/FF9800/ffffff?text=Mouse" alt="Mouse Gaming Wireless">
+                <h4>Mouse Gaming Wireless</h4>
+                <p class="price">Rp 120.000</p>
+                <p class="sold">1.2K Terjual</p>
+                <button class="addToCart">Tambah Ke Keranjang</button>
+            </div>
+            <div class="product-card" data-price="85000" data-name="Buku Fiksi Terlaris">
+                <img src="https://placehold.co/200x200/795548/ffffff?text=Buku" alt="Buku Fiksi Terlaris">
+                <h4>Buku Fiksi Terlaris</h4>
+                <p class="price">Rp 85.000</p>
+                <p class="sold">2.5K Terjual</p>
+                <button class="addToCart">Tambah Ke Keranjang</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- DIALOG CART (jQuery UI Dialog) -->
+    <div id="cartDialog" title="🛒 Keranjang Belanja" style="display: none;">
+        <ul id="cartItems">
+            <!-- Item keranjang akan di-inject di sini -->
+        </ul>
+        <p>Total: Rp <span id="cartTotal">0</span></p>
+    </div>
+
+    <!-- PANGGIL FILE JAVASCRIPT EKSTERNAL (di bagian akhir body adalah praktik terbaik) -->
+    <script src="JS/script.js"></script>
+</body>
+</html>

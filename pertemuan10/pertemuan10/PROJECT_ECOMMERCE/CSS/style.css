@@ -1,0 +1,364 @@
+/* Menggunakan font Inter yang dimuat di index.html */
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+  transition: all 0.2s ease-in-out; /* Transisi untuk semua elemen */
+}
+
+body {
+  background: #f5f5f5;
+}
+
+/* ----------------------------------------------
+ HEADER (ALA SHOPEE)
+------------------------------------------------*/
+
+header {
+  background: #f53f2c; /* Oranye khas */
+  padding: 15px 25px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.logo .span {
+  font-size: 14px;
+  color: #ffeebb;
+  font-weight: 500;
+}
+
+/* Search Box */
+.search-box {
+  background: white;
+  display: flex;
+  align-items: center;
+  width: 100%; /* Lebar penuh di desktop */
+  max-width: 600px;
+  border-radius: 6px;
+  padding: 5px 5px 5px 12px;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.search-box:focus-within {
+   border: 2px solid #ff7043; /* Efek fokus yang lebih jelas */
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 5px 0;
+}
+
+.search-box button {
+  background: #ff7043; /* Oranye tombol */
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.search-box button:hover {
+  background: #ff5722;
+}
+
+/* Icons */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-icons .icon-cart, .header-icons .icon-login {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.header-icons .icon-cart:hover, .header-icons .icon-login:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header-icons i {
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  header {
+      flex-wrap: wrap;
+      padding: 10px 15px;
+  }
+  .logo {
+      font-size: 22px;
+  }
+  .search-box {
+      order: 3; /* Pindah ke baris baru di mobile */
+      width: 100%;
+      margin-top: 10px;
+  }
+  .header-icons {
+      margin-left: auto;
+  }
+}
+
+/* ----------------------------------------------
+ CATEGORY BAR
+------------------------------------------------*/
+
+.category-bar {
+  background: white;
+  padding: 12px 25px;
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.category-bar a {
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.category-bar a:hover {
+  color: #f53f2c;
+  border-bottom: 2px solid #f53f2c;
+}
+
+/* ----------------------------------------------
+ MAIN CONTENT & LAYOUT
+------------------------------------------------*/
+main {
+  display: flex;
+  gap: 20px;
+  padding: 20px 25px;
+}
+
+/* Filter Box (Sidebar) */
+.filter-box {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px;
+  min-width: 200px;
+  height: fit-content;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-box h2 {
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+/* Responsive Main Layout */
+@media (max-width: 1024px) {
+  main {
+      flex-direction: column;
+      padding: 15px;
+  }
+  .filter-box {
+      width: 100%;
+      flex-direction: row; /* Ubah tata letak filter di mobile */
+      gap: 20px;
+      align-items: center;
+      /* Gaya yang lebih kompak untuk mobile/tablet */
+  }
+
+  .filter-box h2 {
+      white-space: nowrap;
+      border-bottom: none;
+      padding-bottom: 0;
+  }
+  
+  /* Menyesuaikan slider untuk tata letak horizontal di mobile */
+  #priceSlider {
+      width: 60%;
+  }
+
+  .filter-box button {
+      white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .filter-box {
+       flex-direction: column;
+       align-items: flex-start;
+  }
+   #priceSlider {
+      width: 100%;
+  }
+  .filter-box p {
+      width: 100%;
+  }
+}
+
+
+/* ----------------------------------------------
+ PRODUK GRID MARKETPLACE
+------------------------------------------------*/
+
+.product-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.product-card {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform .25s, box-shadow .25s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.price {
+  color: #ff3000;
+  font-weight: 700;
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.product-card h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 4px;
+}
+
+.sold {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+/* Tombol */
+
+.product-card button {
+  width: 100%;
+  margin-top: auto; /* Memastikan tombol didorong ke bawah */
+  padding: 8px;
+  border: none;
+  background: #ff7043;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.product-card button:hover {
+  background: #ff5722;
+}
+
+/* ----------------------------------------------
+ CART DIALOG (jQuery UI Dialog)
+------------------------------------------------*/
+
+/* Styling untuk container dialog */
+.ui-dialog-titlebar {
+  background: #f53f2c;
+  color: white;
+  border: none;
+}
+
+.ui-dialog-titlebar-close {
+  color: white !important;
+  opacity: 1;
+}
+
+#cartDialog {
+  font-size: 16px;
+  padding: 15px !important;
+}
+
+#cartItems {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  border-top: 1px solid #eee;
+}
+
+#cartItems li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #555;
+}
+
+#cartItems li span {
+  font-weight: 600;
+  color: #333;
+}
+
+#cartDialog p {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 15px;
+  color: #222;
+}
+
+#cartTotal {
+  color: #f53f2c;
+  font-size: 20px;
+}
+
+/* Styling untuk slider */
+.ui-slider .ui-slider-handle {
+  background: #f53f2c !important;
+  border: 1px solid white !important;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+.ui-slider .ui-slider-range {
+  background: #ff7043 !important;
+}

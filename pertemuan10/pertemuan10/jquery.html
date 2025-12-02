@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contoh lengkap jQuery UI</title>
+
+<!-- CDN jQuery dan jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+<style>
+    body {font-family: Arial; padding: 20px;}
+
+    #draggable {
+        width: 150px; height: 50px;
+        background: #4CAF50; color: white;
+        cursor: move; text-align: center; padding: 10px;
+    }
+
+    #droppable {
+        width: 200px; height: 50px; padding: 10px;
+        background:#f1f1f1; border: 2px dashed #333;
+        text-align: center;
+    }
+
+    li { 
+        margin: 5px; padding: 8px; 
+        background: #ddd; cursor: grab; 
+    }
+</style>
+</head>
+<body>
+
+<h1>Contoh lengkap jQuery UI</h1>
+<hr>
+
+<h2>1. Draggable & Droppable</h2>
+<div id="draggable">Seret saya</div>
+<div id="droppable">Jatuhkan di sini</div>
+<hr>
+
+<h2>2. Sortable</h2>
+<ul id="sortable">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+</ul>
+<hr>
+
+<h2>3. Accordion</h2>
+<div id="accordion">
+    <h3>Sekse 1</h3>
+    <div><p>Isi konten 1</p></div>
+    <h3>Sekse 2</h3>
+    <div><p>Isi konten 2</p></div>
+    <h3>Sekse 3</h3>
+    <div><p>Isi konten 3</p></div>
+</div>
+<hr>
+
+<h2>4. Tabs</h2>
+<div id="tabs">
+    <ul>
+        <li><a href="#tab-1">Tab1</a></li>
+        <li><a href="#tab-2">Tab2</a></li>
+        <li><a href="#tab-3">Tab3</a></li>
+    </ul>
+    <div id="tab-1"><p>Konten Tab 1</p></div>
+    <div id="tab-2"><p>Konten Tab 2</p></div>
+    <div id="tab-3"><p>Konten Tab 3</p></div>
+</div>
+<hr>
+
+<h2>5. Datepicker</h2>
+<input type="text" id="datepicker" placeholder="pilih tanggal">
+<hr>
+
+<h2>6. Dialog</h2>
+<button id="open-dialog">Buka Dialog</button>
+<div id="dialog" title="Dialog jQuery">
+    <p>Ini adalah contoh dialog</p>
+</div>
+<hr>
+
+<h2>7. Slider</h2>
+<div id="slider"></div>
+<p>Nilai: <span id="slider-value">0</span></p>
+<hr>
+
+<h2>8. Autocomplete</h2>
+<input id="autocomplete" placeholder="ketik nama buah.....">
+<hr>
+
+<h2>9. Progressbar</h2>
+<div id="progressbar"></div>
+
+<hr>
+
+<script>
+$(function() {
+    $("#draggable").draggable();
+
+    $("#droppable").droppable({
+        drop: function(event, ui) {
+            $(this).css("background","#4CAF50").html("Berhasil dijatuhkan");
+        }
+    });
+
+    $("#sortable").sortable();
+    $("#accordion").accordion();
+    $("#tabs").tabs();
+
+    $("#datepicker").datepicker({
+        dateFormat: "dd-mm-yy"
+    });
+
+    $("#dialog").dialog({ autoOpen: false });
+
+    $("#open-dialog").click(function(){
+        $("#dialog").dialog("open");
+    });
+
+    $("#slider").slider({
+        slide: function(event, ui) {
+            $("#slider-value").text(ui.value);
+        }
+    });
+
+    var databuah = ["apel", "mangga", "jeruk", "semangka", "pepaya", "anggur"];
+    $("#autocomplete").autocomplete({
+        source: databuah
+    });
+
+    $("#progressbar").progressbar({
+        value: 50
+    });
+});
+</script>
+
+</body>
+</html>
