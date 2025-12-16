@@ -1,0 +1,117 @@
+/* ==============================
+   BASE STYLE
+   ============================== */
+   body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Navbar */
+.navbar {
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Card style */
+.info-card,
+.list-group-item {
+    background: #fff;
+    border-radius: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Product image */
+.product-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Checkout + empty cart message */
+.alert {
+    border-radius: 10px;
+}
+
+/* ==============================
+   DARK MODE
+   ============================== */
+body.dark-mode {
+    background: #1e1e1e;
+    color: #eee;
+}
+
+/* Navbar dark mode */
+.dark-mode .navbar {
+    background: #111 !important;
+}
+
+/* Card, list items */
+.dark-mode .info-card,
+.dark-mode .list-group-item {
+    background: #2c2c2c !important;
+    color: #eee !important;
+}
+
+/* Bottom action bar in product_detail */
+.bottom-action {
+    background: #fff;
+    transition: background 0.3s;
+}
+
+.dark-mode .bottom-action {
+    background: #2c2c2c !important;
+}
+
+/* Price tag */
+.price-tag {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.dark-mode .price-tag {
+    color: #78aaff !important;
+}
+
+/* Description text */
+.description {
+    color: #666;
+}
+
+.dark-mode .description {
+    color: #bbb !important;
+}
+
+/* Checkout page text */
+.dark-mode .text-muted {
+    color: #aaa !important;
+}
+
+/* Buttons dark mode */
+.dark-mode .btn-outline-light {
+    border-color: #ccc;
+    color: #ccc;
+}
+
+.dark-mode .btn-primary {
+    background: #0d6efd;
+}
+
+/* Alert box */
+.dark-mode .alert-light {
+    background: #333 !important;
+    color: #ccc !important;
+}
