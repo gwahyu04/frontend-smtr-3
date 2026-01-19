@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ mobil.nama_mobil }}{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+
+    <div class="detail-image">
+        <img src="{{ url_for('static', filename='uploads/' ~ mobil.foto) }}">
+        <link rel="stylesheet" href="/static/uploads/css/style.css">
+
+    </div>
+
+    <div class="detail-info">
+        <h1>{{ mobil.nama_mobil }}</h1>
+        <p class="merk">{{ mobil.merk }}</p>
+
+        <div class="harga">
+            {{ mobil.harga_sewa | rupiah }} / hari
+        </div>
+
+        <div class="mobil-spec">
+            <div class="spec-item">
+                <span>Transmisi</span>
+                <strong>{{ mobil.transmisi }}</strong>
+            </div>
+            <div class="spec-item">
+                <span>Kapasitas</span>
+                <strong>{{ mobil.kapasitas }} Penumpang</strong>
+            </div>
+            <div class="spec-item">
+                <span>Bahan Bakar</span>
+                <strong>{{ mobil.bahan_bakar }}</strong>
+            </div>
+            <div class="spec-item">
+                <span>Tahun</span>
+                <strong>{{ mobil.tahun }}</strong>
+            </div>
+        </div>
+        </div>
+
+        <div class="status {{ 'tersedia' if mobil.status == 'Tersedia' else 'tidak' }}">
+            {{ mobil.status }}
+        </div>
+
+        <a href="https://wa.me/6281234567890?text=Halo GoGas, saya ingin tanya mobil {{ mobil.nama_mobil }}" 
+        class="btn-rent">
+         Sewa Sekarang
+     </a>
+    </div>
+
+</div>
+{% endblock %}

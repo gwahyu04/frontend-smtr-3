@@ -1,0 +1,314 @@
+/* ================== ADMIN DASHBOARD ================== */
+
+body {
+    background-color: #f4f6f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================== JUDUL ================== */
+h1 {
+    margin-bottom: 20px;
+    color: #1f2937;
+}
+
+/* ================== BUTTON ================== */
+.btn-primary-pro {
+    background-color: #2563eb;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-primary-pro:hover {
+    background-color: #1e40af;
+}
+
+/* ================== TABLE ================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+thead {
+    background-color: #f1f5f9;
+}
+
+thead th {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #111827;
+}
+
+tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* ================== FOTO ================== */
+tbody img {
+    width: 80px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+/* ================== STATUS ================== */
+td:nth-child(9) {
+    font-weight: 600;
+}
+
+td:nth-child(9):contains("Tersedia") {
+    color: #16a34a;
+}
+
+/* ================== AKSI ================== */
+td a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+td a:last-child {
+    color: #dc2626;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+    table {
+        font-size: 12px;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 10px;
+        background: #fff;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: none;
+        padding: 6px 0;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #6b7280;
+    }
+}
+
+/* ================== FORM ADMIN ================== */
+
+body {
+    background-color: #f4f6f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #1f2937;
+}
+
+/* ================== FORM CONTAINER ================== */
+form {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* ================== LABEL ================== */
+label {
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* ================== INPUT & SELECT ================== */
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="file"] {
+    padding: 8px;
+    background: #f9fafb;
+}
+
+/* ================== FOCUS EFFECT ================== */
+input:focus,
+select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* ================== BUTTON ================== */
+button {
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #1e40af;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+}
+
+
+/* ===============================
+   RESET DASAR
+   =============================== */
+   * {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f4f6fb;
+}
+
+/* ===============================
+   JUDUL
+   =============================== */
+h1 {
+    margin-bottom: 24px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* ===============================
+   FORM WRAPPER
+   =============================== */
+form {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    /* INI KUNCI UTAMA */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+/* ===============================
+   LABEL
+   =============================== */
+form label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* ===============================
+   INPUT & SELECT
+   =============================== */
+form input,
+form select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+}
+
+/* ===============================
+   FOCUS
+   =============================== */
+form input:focus,
+form select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ===============================
+   FILE INPUT
+   =============================== */
+input[type="file"] {
+    padding: 10px;
+    background: #f9fafb;
+}
+
+/* ===============================
+   BUTTON
+   =============================== */
+button {
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}

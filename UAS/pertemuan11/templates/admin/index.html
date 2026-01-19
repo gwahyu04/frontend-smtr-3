@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Dashboard Admin{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 50px;">
+    <h1>Manajemen Armada</h1>
+
+    <link rel="stylesheet" href="/static/uploads/css/admin.css">
+
+    <a href="{{ url_for('admin_add') }}"
+       class="btn-primary-pro"
+       style="margin-bottom: 20px; display: inline-block;">
+        + Tambah Mobil Baru
+    </a>
+
+    <table border="1"
+           width="100%"
+           style="border-collapse: collapse; background: white;">
+        <thead style="background: #eee;">
+            <tr>
+                <th>Foto</th>
+                <th>Nama Mobil</th>
+                <th>Merk</th>
+                <th>Transmisi</th>
+                <th>Bahan Bakar</th>
+                <th>Kapasitas</th>
+                <th>Tahun</th>
+                <th>Harga / Hari</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for stok in stoks %}
+            <tr>
+                <td align="center">
+                    {% if stok.foto %}
+                        <img src="{{ url_for('static', filename='uploads/' ~ stok.foto) }}" width="80">
+                    {% else %}
+                        No Photo
+                    {% endif %}
+                </td>
+
+                <td>{{ stok.nama_mobil }}</td>
+                <td>{{ stok.merk }}</td>
+                <td>{{ stok.transmisi or '-' }}</td>
+                <td>{{ stok.bahan_bakar or '-' }}</td>
+                <td align="center">{{ stok.kapasitas or '-' }}</td>
+                <td align="center">{{ stok.tahun or '-' }}</td>
+                <td>{{ stok.harga_sewa | rupiah }}</td>
+                <td>{{ stok.status }}</td>
+                <td>
+                    <a href="{{ url_for('admin_edit', id=stok.id) }}">Edit</a> |
+                    <a href="{{ url_for('admin_delete', id=stok.id) }}"
+                       onclick="return confirm('Hapus mobil ini?')">
+                        Hapus
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

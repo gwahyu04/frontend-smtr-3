@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Mobil{% endblock %}
+
+{% block content %}
+<h1>Edit Mobil</h1>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='uploads/css/admin.css') }}">
+</head>
+<form action="{{ url_for('admin_edit', id=stok.id) }}" 
+      method="POST" 
+      enctype="multipart/form-data"
+      style="max-width: 600px;">
+
+    <label>Nama Mobil</label>
+    <input type="text" name="nama_mobil" value="{{ stok.nama_mobil }}" required>
+
+    <label>Merk</label>
+    <input type="text" name="merk" value="{{ stok.merk }}" required>
+
+    <label>Harga Sewa</label>
+    <input type="number" name="harga_sewa" value="{{ stok.harga_sewa }}" required>
+
+    <label>Status</label>
+    <select name="status">
+        <option value="Tersedia" {% if stok.status == 'Tersedia' %}selected{% endif %}>Tersedia</option>
+        <option value="Tidak Tersedia" {% if stok.status == 'Tidak Tersedia' %}selected{% endif %}>Tidak Tersedia</option>
+    </select>
+
+    <label>Transmisi</label>
+    <select name="transmisi">
+        <option value="Manual" {% if stok.transmisi == 'Manual' %}selected{% endif %}>Manual</option>
+        <option value="Automatic" {% if stok.transmisi == 'Automatic' %}selected{% endif %}>Automatic</option>
+    </select>
+
+    <label>Bahan Bakar</label>
+    <select name="bahan_bakar">
+        <option value="Bensin" {% if stok.bahan_bakar == 'Bensin' %}selected{% endif %}>Bensin</option>
+        <option value="Solar" {% if stok.bahan_bakar == 'Solar' %}selected{% endif %}>Solar</option>
+        <option value="Hybrid" {% if stok.bahan_bakar == 'Hybrid' %}selected{% endif %}>Hybrid</option>
+    </select>
+
+    <label>Kapasitas (Kursi)</label>
+    <input type="number" name="kapasitas" value="{{ stok.kapasitas }}" required>
+
+    <label>Tahun</label>
+    <input type="number" name="tahun" value="{{ stok.tahun }}" required>
+
+    <label>Foto</label>
+    <input type="file" name="foto">
+
+    <button type="submit" style="margin-top: 15px;">Simpan Perubahan</button>
+</form>
+{% endblock %}

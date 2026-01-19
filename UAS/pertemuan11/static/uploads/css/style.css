@@ -1,0 +1,464 @@
+/* MASTER CSS GODRIVE - PROFESSIONAL VERSION 
+   Semua desain halaman (Beranda, Armada, Admin) ada di sini.
+*/
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --accent: #10b981;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --gray: #64748b;
+    --border: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --radius-lg: 16px;
+    --radius-md: 12px;
+}
+
+/* --- RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+a { text-decoration: none; transition: 0.3s; }
+
+/* --- NAVBAR MODERN --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.nav-search {
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 99px;
+    padding: 5px 5px 5px 20px;
+    width: 320px;
+}
+
+.nav-search input {
+    border: none; background: transparent; outline: none; flex: 1; font-size: 0.85rem;
+}
+
+.nav-search button {
+    background: var(--primary); color: white; border: none; padding: 8px 18px; border-radius: 99px; cursor: pointer;
+}
+
+.nav-menu { list-style: none; display: flex; gap: 1.5rem; }
+.nav-menu a { color: var(--gray); font-weight: 500; }
+.nav-menu a:hover { color: var(--primary); }
+
+/* --- HERO SECTION --- */
+.hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span { color: #60a5fa; }
+
+.hero p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 35px;
+    max-width: 650px;
+}
+
+/* --- CAR CARD & GRID --- */
+.section-header {
+    margin: 60px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.car-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.car-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+
+.car-image { height: 210px; overflow: hidden; }
+.car-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.car-body { padding: 25px; }
+.merk-badge {
+    background: #eff6ff; color: var(--primary); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700;
+}
+
+.price-text { font-size: 1.3rem; font-weight: 800; color: var(--primary); }
+
+/* --- BUTTONS --- */
+.btn-primary-pro {
+    background: var(--primary); color: white; padding: 12px 28px; border-radius: 10px; font-weight: 600; display: inline-block;
+}
+
+.btn-primary-pro:hover { background: var(--primary-dark); transform: scale(1.02); }
+
+.btn-outline-pro {
+    border: 2px solid var(--primary); color: var(--primary); padding: 10px 25px; border-radius: 10px; font-weight: 600; display: inline-block;
+}
+
+/* --- ADMIN & TABLE STYLES --- */
+.admin-card {
+    background: white; padding: 30px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-top: 30px;
+}
+
+.pro-table {
+    width: 100%; border-collapse: collapse; margin-top: 20px;
+}
+
+.pro-table th {
+    background: #f1f5f9; padding: 15px; text-align: left; font-weight: 600; color: var(--gray);
+}
+
+.pro-table td { padding: 15px; border-bottom: 1px solid var(--border); }
+
+.badge-status {
+    padding: 5px 12px; border-radius: 99px; font-size: 0.8rem; font-weight: 600;
+}
+.tersedia { background: #dcfce7; color: #166534; }
+.habis { background: #fee2e2; color: #991b1b; }
+
+/* --- ANIMATION --- */
+.animate-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: var(--dark); color: white; padding: 60px 0 30px; margin-top: 80px; text-align: center;
+}
+/* ================= FOOTER PROFESIONAL ================= */
+.footer-pro {
+    background: #0f172a; /* Warna Biru Dongker Gelap yang Mewah */
+    color: #cbd5e1;
+    padding: 80px 0 0 0;
+    font-size: 0.95rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.footer-logo span {
+    color: var(--primary); /* Mengambil warna biru dari variabel CSS Anda */
+}
+
+.footer-column h3 {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background: var(--primary);
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: white;
+    padding-left: 8px;
+}
+
+.info-contact p {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 12px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+    background: #020617;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.bottom-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-legal a {
+    color: #64748b;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.85rem;
+}
+
+.footer-legal a:hover {
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .bottom-wrapper {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* ===============================
+   DETAIL MOBIL – PROFESIONAL
+   =============================== */
+
+   .detail-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 32px;
+}
+
+/* ===== IMAGE ===== */
+.detail-image {
+    width: 100%;
+    height: 100%;
+}
+
+.detail-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== INFO ===== */
+.detail-info h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+    color: #1f2937;
+}
+
+.detail-info .merk {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 18px;
+}
+
+/* ===== HARGA ===== */
+.harga {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 24px;
+}
+
+/* ===== SPEC ===== */
+.mobil-spec {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 26px;
+}
+
+.spec-item {
+    background: #f9fafb;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.spec-item span {
+    display: block;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.spec-item strong {
+    font-size: 15px;
+    color: #111827;
+}
+
+/* ===== STATUS ===== */
+.status {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.status.tersedia {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.tidak {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ===== BUTTON ===== */
+.btn-rent {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-rent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .detail-container {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-image img {
+        max-height: 320px;
+    }
+}
+

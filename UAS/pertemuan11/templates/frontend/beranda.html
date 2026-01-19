@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Beranda | GoDrive Rental Mobil Premium{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-content animate-up">
+        <h1>Perjalanan Hebat <br>Dengan <span>Mobil Yang Tepat</span></h1>
+        <p>Sewa mobil lepas kunci atau dengan driver. Armada terbaru, bersih, dan terawat untuk kenyamanan perjalanan Anda.</p>
+        <div class="hero-cta">
+            <a href="{{ url_for('armada') }}" class="btn-primary-pro">Jelajahi Armada</a>
+            <a href="#cars" class="btn-outline-pro" style="color: white; border-color: white; margin-left: 15px;">Unit Terpopuler</a>
+        </div>
+    </div>
+</section>
+
+<section class="container" style="padding: 80px 0;">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Mengapa Kami?</span>
+        <h2 style="font-size: 2.5rem; margin-top: 10px; font-weight: 800;">Layanan Terbaik Untuk Anda</h2>
+    </div>
+    
+    <div class="car-grid"> 
+        <div class="car-card" style="padding: 40px; text-align: center; border:none; background:white;">
+            <div style="font-size: 3.5rem; margin-bottom: 20px;">🛡️</div>
+            <h3 style="margin-bottom: 15px; font-weight: 700;">Armada Terawat</h3>
+            <p style="color: var(--gray);">Setiap unit melalui inspeksi rutin untuk memastikan keamanan Anda.</p>
+        </div>
+        <div class="car-card" style="padding: 40px; text-align: center; border:none; background:white;">
+            <div style="font-size: 3.5rem; margin-bottom: 20px;">💰</div>
+            <h3 style="margin-bottom: 15px; font-weight: 700;">Harga Transparan</h3>
+            <p style="color: var(--gray);">Tidak ada biaya tersembunyi. Harga jujur sudah termasuk asuransi dasar.</p>
+        </div>
+        <div class="car-card" style="padding: 40px; text-align: center; border:none; background:white;">
+            <div style="font-size: 3.5rem; margin-bottom: 20px;">⚡</div>
+            <h3 style="margin-bottom: 15px; font-weight: 700;">Proses Cepat</h3>
+            <p style="color: var(--gray);">Booking via WhatsApp dengan konfirmasi instan kurang dari 15 menit.</p>
+        </div>
+    </div>
+</section>
+
+<section id="cars" style="background: #f1f5f9; padding: 80px 0;">
+    <div class="container">
+        <div class="section-header">
+            <div>
+                <span style="color: var(--primary); font-weight: 700; text-transform: uppercase;">Paling Sering Disewa</span>
+                <h2 style="font-size: 2.5rem; font-weight: 800;">Unit Favorit Pelanggan</h2>
+            </div>
+            <a href="{{ url_for('armada') }}" style="color: var(--primary); font-weight: 600;">Lihat Semua Armada →</a>
+        </div>
+        
+        <div class="car-grid animate-up">
+            {% for mobil in mobil_favorit %} 
+            <div class="car-card">
+                <div class="car-image">
+                    <img src="{{ url_for('static', filename='uploads/' + mobil.foto) if mobil.foto else 'https://via.placeholder.com/400x250' }}" 
+                         alt="{{ mobil.nama_mobil }}">
+                </div>
+                <div class="car-body">
+                    <span class="merk-badge">{{ mobil.merk }}</span>
+                    <h3 style="margin: 10px 0; font-weight: 700;">{{ mobil.nama_mobil }}</h3>
+                    
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 15px;">
+                        <div>
+                            <span class="price-text">{{ mobil.harga_sewa | rupiah }}</span>
+                            <small style="color: var(--gray);">/hari</small>
+                        </div>
+                        <a href="{{ url_for('detail_mobil', id=mobil.id) }}" class="btn-primary-pro" style="padding: 8px 15px; font-size: 0.8rem;">
+                           Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section style="padding: 100px 0;">
+    <div class="container" style="background: var(--primary); padding: 60px; border-radius: 30px; color: white; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 800;">Siap Untuk Memulai Perjalanan?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+            Hubungi tim kami sekarang dan dapatkan penawaran harga spesial untuk sewa lebih dari 3 hari.
+        </p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/6281234567890" class="btn-primary-pro" style="background: #25D366; border: none; padding: 15px 40px;">
+               Chat via WhatsApp
+            </a>
+            <a href="{{ url_for('kontak') }}" class="btn-outline-pro" style="padding: 15px 40px; border: 2px solid white; color: white;">
+                Hubungi Kantor
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Armada Mobil | GoDrive{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 40px 20px;">
+    <header style="margin-bottom: 50px; text-align: center;">
+        <h1 style="font-size: 2.5rem; color: var(--dark); font-weight: 700;">Armada Kami</h1>
+        <p style="color: var(--gray); max-width: 600px; margin: 10px auto;">Pilih kendaraan terbaik yang sesuai dengan kebutuhan perjalanan Anda. Semua unit dalam kondisi prima dan terawat.</p>
+    </header>
+
+    <div class="car-grid">
+        {% for mobil in armada %}
+        <div class="car-card">
+            <div class="car-image" style="height: 220px; overflow: hidden; position: relative;">
+                {% if mobil.foto %}
+                <img src="{{ url_for('static', filename='uploads/' + mobil.foto) }}" 
+                     alt="{{ mobil.nama_mobil }}" 
+                     style="width: 100%; height: 100%; object-fit: cover; transition: 0.3s;">
+                {% else %}
+                <div style="height: 100%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #94a3b8;">
+                    No Image
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="car-details" style="padding: 25px;">
+                <span class="merk-label" style="background: #f1f5f9; color: var(--primary); padding: 3px 10px; border-radius: 5px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                    {{ mobil.merk }}
+                </span>
+                
+                <h3 style="margin: 10px 0; font-size: 1.4rem; color: var(--dark);">{{ mobil.nama_mobil }}</h3>
+                
+                <div class="price-tag" style="margin-bottom: 20px;">
+                    <span style="font-size: 1.3rem; font-weight: 700; color: var(--primary);">{{ mobil.harga_sewa | rupiah }}</span>
+                    <span style="color: var(--gray); font-size: 0.9rem;">/hari</span>
+                </div>
+                
+                <hr style="border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 20px;">
+                
+                <div class="card-actions" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <a href="{{ url_for('detail_mobil', id=mobil.id) }}" 
+                       class="btn-detail" 
+                       style="text-align: center; padding: 10px; border: 1px solid var(--primary); color: var(--primary); border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s;">
+                        Detail Unit
+                    </a>
+                    
+                    <a href="https://wa.me/6281234567890?text=Halo GoGas, saya ingin tanya ketersediaan mobil {{ mobil.nama_mobil }}" 
+                       class="btn-rent" 
+                       style="text-align: center; padding: 10px; background: var(--primary); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s;">
+                        Sewa Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div style="grid-column: 1 / -1; text-align: center; padding: 50px; background: white; border-radius: 15px; box-shadow: var(--shadow);">
+            <p style="color: var(--gray); font-size: 1.1rem;">Mohon Maaf, saat ini unit mobil yang tersedia.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

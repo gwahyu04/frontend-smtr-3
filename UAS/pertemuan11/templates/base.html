@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GoGas | Sewa Mobil Profesional{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/uploads/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-wrapper">
+        <div class="logo">
+            <a href="{{ url_for('beranda') }}">GoGas<span>.</span></a>
+        </div>
+
+        <form action="{{ url_for('search') }}" method="get" class="nav-search">
+            <input type="text" name="q" placeholder="Cari unit mobil..." value="{{ keyword if keyword else '' }}">
+            <button type="submit">Cari</button>
+        </form>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('beranda') }}">Beranda</a></li>
+                <li><a href="{{ url_for('armada') }}">Armada</a></li>
+                <li><a href="{{ url_for('tentang') }}">Tentang</a></li>
+                <li><a href="{{ url_for('kontak') }}">Kontak</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer-pro">
+    <div class="container footer-grid">
+        <div class="footer-column brand-info">
+            <h2 class="footer-logo">GoGas<span>.</span></h2>
+            <p>Penyedia layanan rental mobil premium dengan armada terbaru dan pelayanan bintang lima. Kenyamanan dan keamanan Anda adalah prioritas utama kami.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Navigasi</h3>
+            <ul>
+                <li><a href="{{ url_for('beranda') }}">Beranda</a></li>
+                <li><a href="{{ url_for('armada') }}">Armada Mobil</a></li>
+                <li><a href="{{ url_for('tentang') }}">Tentang Kami</a></li>
+                <li><a href="{{ url_for('kontak') }}">Hubungi Kami</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Layanan Kami</h3>
+            <ul>
+                <li><a href="#">Sewa Lepas Kunci</a></li>
+                <li><a href="#">Sewa Dengan Driver</a></li>
+                <li><a href="#">Antar Jemput Bandara</a></li>
+                <li><a href="#">Sewa Mobil Pengantin</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column info-contact">
+            <h3>Kontak Kami</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Jl. Sudirman No. 123, Jakarta Pusat</p>
+            <p><i class="fas fa-phone-alt"></i> +62 812-3456-7890</p>
+            <p><i class="fas fa-envelope"></i> support@gogas.com</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container bottom-wrapper">
+            <p>&copy; 2026 GoGas Rental Mobil. Seluruh Hak Cipta Dilindungi.</p>
+            <div class="footer-legal">
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Kebijakan Privasi</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
